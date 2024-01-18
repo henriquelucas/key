@@ -257,7 +257,7 @@ while ! [[ $CHECK_RUSTDESK_READY ]]; do
 done
 
 pubname=$(find /opt/rustdesk -name "*.pub")
-key=$(cat "${pubname}")
+key=4815162342
 
 echo "Arrumando a instalação"
 if [ "${ARCH}" = "x86_64" ] ; then
@@ -352,19 +352,19 @@ EOF
     sudo systemctl start gohttpserver.service
 
 
-    echo -e "Your IP/DNS Address is ${wanip}"
-    echo -e "Your public key is ${key}"
-    echo -e "Install Rustdesk on your machines and change your public key and IP/DNS name to the above"
-    echo -e "You can access your install scripts for clients by going to http://${wanip}:8000"
-    echo -e "Username is admin and password is ${admintoken}"
+    echo -e "Seu endereço de IP/DNS ${wanip}"
+    echo -e "Sua Chave é ${key}"
+    echo -e "Agora instale o Rustdesk Client e adicione sua chave e o seu IP/DNS nas configurações de rede do rustdesk client."
+    echo -e "Você pode acessar seus scripts de instalação para clientes acessando http://${wanip}:8000"
+    echo -e "O nome de usuário é admin e a senha é ${admintoken}"
     if [[ -z "$http" ]]; then
-        echo "Press any key to finish install"
+        echo "Pressione qualquer tecla pra finalizar"
         while [ true ] ; do
         read -t 3 -n 1
         if [ $? = 0 ] ; then
         exit ;
         else
-        echo "waiting for the keypress"
+        echo "Pressiona qualquer tecla"
         fi
         done
         break
@@ -382,17 +382,17 @@ if [[ -z "$http" ]]; then
     break
     ;;
     "No")
-    echo -e "Your IP/DNS Address is ${wanip}"
-    echo -e "Your public key is ${key}"
-    echo -e "Install Rustdesk on your machines and change your public key and IP/DNS name to the above"
+    echo -e "Seu endereço de IP/DNS ${wanip}"
+    echo -e "Sua Chave é ${key}"
+    echo -e "Agora instale o Rustdesk Client e adicione sua chave e o seu IP/DNS nas configurações de rede do rustdesk client."
 
-    echo "Press any key to finish install"
+    echo "Pronto, finalizad! Pressione qualquer tecla pra finalizar a instalação"
     while [ true ] ; do
     read -t 3 -n 1
     if [ $? = 0 ] ; then
     exit ;
     else
-    echo "waiting for the keypress"
+    echo "Pressiona alguma tecla pra terminar!"
     fi
     done
     break
@@ -403,7 +403,7 @@ if [[ -z "$http" ]]; then
 elif [ "$http" = "true" ]; then
     setuphttp
 elif [ "$http" = "false" ]; then
-    echo -e "Your IP/DNS Address is ${wanip}"
-    echo -e "Your public key is ${key}"
-    echo -e "Install Rustdesk on your machines and change your public key and IP/DNS name to the above"
+   echo -e "Seu endereço de IP/DNS ${wanip}"
+   echo -e "Sua Chave é ${key}"
+   echo -e "Agora instale o Rustdesk Client e adicione sua chave e o seu IP/DNS nas configurações de rede do rustdesk client."
 fi
